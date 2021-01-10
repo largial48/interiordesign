@@ -1,0 +1,154 @@
+{% extends 'common.html' %}
+<!-- Django Admin SuperUser details = Name: shivam , Password: shivam -->
+<!-- check contacts table in it -->
+{% block title %}
+  Contact Us
+{% endblock title %}
+{% block style %}
+  
+        * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#container{
+  font-family: 'Arapey', serif;
+  font-size: x-large;
+    border:solid;
+    border-color: black;
+    border-radius: 10px;
+    padding: 30px;
+    background-color: #e8e8e8;
+}
+#Field1,#Field3,#Field4{
+  border: 1px solid gray;
+    border-radius: 5px;
+}
+select,input,textarea{
+  font-family: 'Arapey', serif;
+  font-size: x-large;
+}
+
+form > div {
+  clear: both;
+  overflow: hidden;
+  padding: 1px;
+  margin: 0 0 10px 0;
+}
+form > div > fieldset > div > div {
+  margin: 0 0 5px 0;
+}
+form > div > label,
+legend {
+	width: 25%;
+  float: left;
+  padding-right: 10px;
+}
+form > div > div,
+form > div > fieldset > div {
+  width: 75%;
+  float: right;
+}
+form > div > fieldset label {
+	font-size: 90%;
+}
+
+input[type=text],
+input[type=email],
+input[type=url],
+input[type=password],
+textarea {
+	width: 100%;
+}
+input[type=text],
+input[type=email],
+input[type=url],
+input[type=password] {
+  width: 50%;
+}
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=url]:focus,
+input[type=password]:focus,
+textarea:focus {
+  outline: 0;
+  border-color: #4697e4;
+}
+
+@media (max-width: 600px) {
+  form > div {
+    margin: 0 0 15px 0; 
+  }
+  form > div > label,
+  legend {
+	  width: 100%;
+    float: none;
+    margin: 0 0 5px 0;
+  }
+  form > div > div,
+  form > div > fieldset > div {
+    width: 100%;
+    float: none;
+  }
+  input[type=text],
+  input[type=email],
+  input[type=url],
+  input[type=password],
+  textarea,
+  select {
+    width: 100%; 
+  }
+}
+@media (min-width: 1200px) {
+  form > div > label,
+	legend {
+  	text-align: right;
+  }
+}
+
+{% endblock style %}
+
+{% block body %}
+  
+    <div class="container" id="container"><b>
+      <h1 class="text-center" style="color: #ce0000; border: double; border-radius: 25px;">CONTACT US</h1>
+    <form action="/contact" method="post" class="px-2 py-2" style="color:#f21a1d;border: double; border-radius: 25px;">
+        {% csrf_token %}
+        <div>
+          <label class="desc" id="title1" for="name">Full Name</label>
+          <div>
+            <input id="Field1" name="name" type="text" maxlength="30" class="field text fn" value="" size="8" tabindex="1">
+          </div>
+        </div>
+          
+        <div>
+          <label class="desc" id="title3" for="email">
+            Email
+          </label>
+          <div>
+            <input id="Field3" name="email" type="email" maxlength="50" spellcheck="false" value="" maxlength="255" tabindex="3"> 
+         </div>
+        </div>
+          
+        <div>
+          <label class="desc" id="title4" for="message">
+            Message
+          </label>
+        
+          <div>
+            <textarea id="Field4" name="message" spellcheck="true" maxlength="500" rows="10" cols="50" tabindex="4"></textarea>
+          </div>
+        </div>
+          
+        <div>
+              <div class="text-center">
+                <button class="btn-info rounded" id="saveform" name="saveForm" type="submit">Submit</button>
+          </div>
+          </div>
+        
+      </form>
+      </b>
+</div>
+
+{% endblock body %}

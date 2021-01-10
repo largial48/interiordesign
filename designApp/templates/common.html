@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<!-- Django Admin SuperUser details = Name: shivam , Password: shivam -->
+<!-- check contacts table in it -->
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Monoton&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Redressed&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arapey:ital@1&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Text:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+
+    <style>
+        /*body{
+          background-color:	#E8E8E8;
+      }
+
+      .bdr{
+        border: double;
+        border-radius: 50%;
+      }
+
+      .txtColor{
+        color:#33135C;
+      }
+
+      .container
+      {
+        font-family: 'Garamond', serif;
+      }*/
+
+      body{
+        background-color:	thistle;
+      }
+
+      hr {
+      border: 1px solid #787878;
+      }
+
+      .bdr{
+        border: double;
+        border-radius: 50%;
+        font-family:cursive;
+      }
+
+      .txtColor{
+      padding:30px;
+      color:black;
+      background-color: aquamarine;
+      }
+      .container-fluid
+      {
+      background-color:powderblue;
+      border-radius: 10px;
+      }
+
+      {% block style %}
+
+      {% endblock style %}
+    </style>
+    <title>{% block title %} {% endblock title %}</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <a
+          class="navbar-brand"
+          style="color: #00feca; font-family: monoton, cursive"
+          href="/"
+          ><marquee behavior="scroll" direction="down" scrollamount="5"
+            ><h2>INTERIODESIGNS</h2></marquee
+          ></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link rounded page mx-2"
+                style="
+                  color: #f21a1d;
+                  font-family: 'Redressed', cursive;
+                  font-size: x-large;
+                "
+                aria-current="page"
+                href="/items"
+                ><u><b>Designer items</b></u></a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a
+                class="nav-link rounded page mx-2"
+                style="
+                  color: #f21a1d;
+                  font-family: 'Redressed', cursive;
+                  font-size: x-large;
+                "
+                aria-current="page"
+                href="/systems"
+                ><b><u>Smart Systems</u></b></a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a
+                class="nav-link rounded page mx-2"
+                style="
+                  color: #f21a1d;
+                  font-family: 'Redressed', cursive;
+                  font-size: x-large;
+                "
+                aria-current="page"
+                href="/contact"
+                ><b><u>Contact Us</u></b></a
+              >
+            </li>
+          </ul>
+
+          {% block search %} {% endblock search %}
+        </div>
+      </div>
+    </nav>
+<!-- Following if condition is to display message which is passed from views -->
+    {% if messages %} {% for message in messages %}
+
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Message : </strong> {{ message }}
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %} {% endif %}
+    
+    {% block body %} {% endblock %}
+
+    <!-- Below is all about footer  -->
+    <hr />
+    <div class="container my-4 text-center">
+      <div class="row">
+        <div class="col">
+          <a
+            class="btn btn-info bdr"
+            data-toggle="collapse"
+            href="#team"
+            role="button"
+            aria-expanded="false"
+            aria-controls="collapseExample"
+            >TEAM</a
+          >
+
+          <div class="collapse" id="team">
+            <div
+              class="my-2 rounded card card-body txtColor"
+              style="background-color: #fea0fe"
+            >
+              <b
+                ><br />
+                Shivam Gupta <br />
+                Pallavi Salian <br />
+                Rolwin Benedict<br />
+                Aayush Kanyal<br />
+                Padma Largial<br />
+                <br />
+              </b>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <a
+            class="btn btn-info bdr"
+            data-toggle="collapse"
+            href="#contact"
+            role="button"
+            aria-expanded="false"
+            aria-controls="collapseExample"
+            >CONTACT US</a
+          >
+
+          <div class="collapse" id="contact">
+            <div
+              class="my-2 rounded card card-body txtColor"
+              style="background-color: #ff8b8b"
+            >
+              <b
+                ><br />
+                -7506118685 <br />
+                -9820369245<br />
+                -9148498467<br />
+                -9702353391<br />
+                -7994607589<br /><br />
+              </b>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <a
+            class="btn btn-info bdr"
+            data-toggle="collapse"
+            href="#project"
+            role="button"
+            aria-expanded="false"
+            aria-controls="collapseExample"
+            >MAJOR PROJECT</a
+          >
+
+          <div class="collapse" id="project">
+            <div
+              class="my-2 rounded card card-body txtColor"
+              style="background-color: #f85125"
+            >
+              <b>
+                This is the major project of SmartKnower developed by respective
+                team. Basically this site shows various designer items and Smart
+                unique systems which you can install in your home to make it
+                look and feel more attractive.
+              </b>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+
+    <script>
+      var header = document.querySelector("marquee"); //grabbing
+      header;
+      header.style.color = "red";
+
+      function getRandomColor() {
+        var letters = "0123456789ABCDEF";
+        var color = "#";
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 17)];
+        }
+        return color;
+      }
+
+      function changeHeaderColor() {
+        colorInput = getRandomColor();
+        header.style.color = colorInput;
+      }
+
+      setInterval("changeHeaderColor()", 500);
+    </script>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+      integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+      crossorigin="anonymous"
+    ></script>
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

@@ -1,0 +1,69 @@
+{% extends 'common.html' %}
+<!-- Django Admin SuperUser details = Name: shivam , Password: shivam -->
+<!-- check contacts table in it -->
+{% block title %}
+  InterioDesigns
+{% endblock title %}
+{% block body %}
+
+<!-- static is used to display static images from static folder -->
+      {% load static %}
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{%static 'pic1.jpg' %}" class="d-block w-100" alt="" width="1500" height="500">
+          </div>
+          <div class="carousel-item">
+            <img src="https://zxp.design/create/wp-content/uploads/2020/09/chslider1.jpg" class="d-block w-100" alt="..." width="1500" height="500">
+          </div>
+          <div class="carousel-item">
+            <img src="{%static 'pic2.jpg' %}" class="d-block w-100" alt="Currently not avaialble" width="1500" height="500">
+          </div>
+          <div class="carousel-item">
+            <img src="{%static 'pic3.jpg' %}" class="d-block w-100" alt="Currently not avaialble" width="1500" height="500">
+          </div>
+          <div class="carousel-item">
+            <img src="{%static 'pic4.jpg' %}" class="d-block w-100" alt="Currently not avaialble" width="1500" height="500">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+
+    </div>
+  <div class="container my-5">
+    <div class="row">
+        <div class="col">
+           <b>Find your happy place</b> <br>
+You deserve a home that is functional and stylish, today. Don’t put it off until the kids are older or you have more time. We can create a beautiful space that fits your needs so you don’t have to be embarrassed to host book club next month.
+        </div>
+
+        <div class="col">
+            <b>Delightfully affordable</b> <br>
+            We believe that interior design should be accessible to everyone. That’s why Havenly packages are designed to be affordable, and our designers are trained to work within your budget.
+        </div>
+
+        <div class="col">
+            <b>Create a lasting relationship</b> <br>
+            Your Havenly pro is your friend, your guide, and your partner in home design. They’ll take care of your needs, help you create a custom space that grows with you, and they’re only a message away.
+        </div>
+    </div>
+    <!-- Many Many other things can be added for homepage -->
+
+    <p class="text-center">Note: Price mentioned in this site is estimated</p>
+    </div>
+{% endblock body %}

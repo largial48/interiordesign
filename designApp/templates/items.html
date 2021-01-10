@@ -1,0 +1,42 @@
+{% extends 'common.html' %}
+<!-- Django Admin SuperUser details = Name: shivam , Password: shivam -->
+<!-- check contacts table in it -->
+{% block title %}
+  Designer Items
+{% endblock title %}
+{% block search %}
+  <form class="d-flex" action="/items" method="post">
+    {% csrf_token %}
+          <input class="form-control me-2 mx-2" name="search" type="search" placeholder="Type 'all' for all items" aria-label="Search">
+          <button class="btn btn-warning mx-1" type="submit">Search</button>
+        </form>
+{% endblock search %}
+
+{% block body %}
+  <h2 class="text-center mt-2 mb-4" style="color:#CE0000;">Here you will get various designer items which you can put in your lovely home</h2>
+  <div class="container">
+
+  <!-- This loop is to display all the items which is been passed through dictionary from views -->
+    {% for item in items %}
+        <div class="jumbotron" style="background-color: #FDCBFC;">
+      <div class="row">
+      <div class="col-sm-12 col-xs-12 col-lg-8 col-xl-8">
+    <h1 class="display-4">{{item.item_name}}</h1>
+    <p class="lead">{{item.item_desc}}</p>
+    <hr class="my-4">
+    <label class="btn btn-primary btn-lg" href="#" role="button"><b>Price: ₹ {{item.item_price}}</b></label>
+      </div>
+  <div class="col-sm-12 col-xs-12 col-lg-4 col-xl-4">
+    <img src="/media/{{item.item_image}}" height="100%" width="100%" alt="..." class="img-thumbnail">
+  </div>
+</div>
+</div>
+{% endfor %}
+
+<!-- If there are no systems matching user's search  -->
+{% if not items %}
+    <h2 style="color:#120052" class="text-center">Sorry.... We currently don’t have any item matching your search</h2>
+{% endif %}
+
+</div>
+{% endblock body%}

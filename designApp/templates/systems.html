@@ -1,0 +1,58 @@
+{% extends 'common.html' %}
+<!-- Django Admin SuperUser details = Name: shivam , Password: shivam -->
+<!-- check contacts table in it -->
+{% block title %}
+  Modern Home Systems
+{% endblock title %}
+
+{% block search %}
+<form class="d-flex pb-xs-2" action="/systems" method="post">
+  {% csrf_token %}
+        <input class="form-control me-2 mx-2" name="search" type="search" placeholder="Type 'all' for all systems" aria-label="Search">
+        <button class="btn btn-warning mx-1" type="submit">Search</button>
+      </form>
+{% endblock search %}
+
+{% block script %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{% endblock script %}
+
+{% block body %}
+<h2 class="text-center" style="color:#CE0000;">Welcome! Here you will get to know some smart systems you may install in your home</h2>
+
+<div class="container" id="cont">
+
+  <!-- This loop is to display all the system which is been passed through dictionary from views -->
+{% for sys in systems  %}
+  
+<div class="card my-3" style="background-color:#ffe3f1">
+  <h4 class="card-header" style="color:#CE0000">{{sys.system_name}} </h4>
+  <div class="card-body" style="background-color: #e1ef7e;">
+    <div class="row">
+      <div class="col-lg-4 col-xl-4 col-sm-12 col-xs-12">
+        <img src="media/{{sys.system_image1}}" class="img-thumbnail" height="100px" width="350px" alt="image here">
+    </div>
+
+    <div class="col-lg-8 col-xl-8 col-sm-12 col-xs-12">
+      <h4 class="card-title mt-2 mb-5"> Category: {{sys.system_category}}</h4>
+      <h5 class="card-title">{{sys.system_feature}}</h5>
+    </div>
+    </div>
+    <form action="/systemView/{{sys.id}}" method="post">
+      {% csrf_token %}
+    <center><button type="submit" class="btn btn-primary">View Details</button></center>
+      </form>
+
+  </div>
+</div>
+
+{% endfor %}
+  
+<!-- If there are no systems matching user's search  -->
+{% if  not systems %}
+<h2 style="color:#120052" class="text-center">Sorry.... We currently don’t have any system matching your search</h2>
+{% endif %}
+
+</div>
+
+{% endblock body %}
